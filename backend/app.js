@@ -1,8 +1,10 @@
 const express = require ('express');
 const mongoose = require ('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const bookRouters =  require ('./routes/book');
+const userRoutes = require ('./routes/user');
 
 mongoose.connect('mongodb+srv://sophie:22101999@cluster0.jh0mpdh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => console.log('Connexion à MongoDB réussie'))
@@ -18,7 +20,10 @@ app.use((req, res, next)=>{
 });
 
 app.use(bodyParser.json());
+app.use(cors());
+
 app.use('/api/book', bookRouters);
+app.use ('/api/auth', userRoutes);
 
 
 
