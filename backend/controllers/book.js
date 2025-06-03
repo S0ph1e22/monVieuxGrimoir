@@ -81,6 +81,10 @@ exports.bestRating = (req, res, next) =>{
 }
 
 exports.modifyBook = (req,res,next)=>{
+    console.log("ID reçu :", req.params.id);
+    console.log("Utilisateur authentifié :", req.auth?.userId);
+    console.log("Contenu brut reçu :", req.body);
+
     const bookObject = req.file ? {
         ...JSON.parse (req.body.book),
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
