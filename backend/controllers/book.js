@@ -1,21 +1,34 @@
 const Book = require ('../models/Books');
 const fs = require ('fs');
 const path = require ('path');
+const convertToWebp = require('../utilities/convertWebp');
 
-exports.createBook = (req, res, next)=>{
-    const bookObject = JSON.parse (req.body.book);
-    
-    delete bookObject._id;
-    delete bookObject._userId; 
 
-    const book = new Book({
+exports.createBook = async (req, res, next)=>{
+    try{
+        const bookObject = JSON.parse (req.body.book);
+        
+        delete bookObject._id;
+        delete bookObject._userId; 
+
+        const webpImagePath = await convertToWebp(req.file.path); //converti img au format webp
+        const webpFilename = path.basename(webpImagePath); //récup le nom du fichier
+        
+        
+        
+        const book = new Book({
         ...bookObject,
         userId:req.auth.userId,
-        imageUrl : `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+        imageUrl : `${req.protocol}://${req.get('host')}/images/${webpFilename}`,
+        averageRating: 0, 
+        ratings: [] 
     });
-    book.save()
-        .then(()=> res.status(201).json({message: 'livre enregistré'}))
-        .catch(error => res.status(400).json ({error}));
+        await book.save();
+            res.status(201).json({message: 'livre enregistré'});
+    } catch (error) {
+         console.error('Erreur lors de la création du livre :', error);
+        res.status(400).json ({error});
+    } 
 };
 
 exports.ratingBook = (req, res, next) =>{
