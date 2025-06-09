@@ -1,5 +1,5 @@
 const sharp = require ("sharp");
-const fs = require ('fs');
+const fs = require ('fs').promises;
 
 module.exports = async (inputPath) => {
     const outputPath = inputPath.replace (/\.(jpg|jpeg|png)$/i, '.webp');
@@ -14,11 +14,15 @@ await sharp (inputPath)
     .toFormat ('webp')
     .toFile(outputPath);
 
-    fs.unlink(inputPath,function(error){ //supp l'img original
-        if (error){
-            console.log("erreur suppression image originiale : ", error);
-        }
-    }); 
+    setTimeout(() => {
+        fs.unlink(inputPath, (error) => {
+            if (error) {
+                console.log("erreur suppression image originale : ", error);
+            } else {
+                console.log("Image originale supprimée après délai");
+            }
+        });
+    }, 5000); // délai de 5000 ms = 5 secondes
 
     return outputPath;
 };
