@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const http = require('http');
 const app = require('./app');
 
@@ -12,6 +14,7 @@ const normalizePort = val => {
   }
   return false; //sinon retourne false
 };
+
 const port = normalizePort(process.env.PORT ||'4000');
 app.set('port', port);
 
