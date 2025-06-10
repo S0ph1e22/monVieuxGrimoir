@@ -17,6 +17,7 @@ const storage = multer.diskStorage({
         const name = file.originalname.split(' ').join('_');
         //MIME pour résoudre l'exentsion de fichier approprié
         const extension = MIME_TYPES[file.mimetype];
+        //génère un nb entier aléatoire entre 0 et 9999, math random donne un nb décimal, x10000 et on arrondi a l'entier supp
         const random = Math.floor(Math.random()*10000);
         const filename = `${name}_${random}.${extension}`;
         callback(null, filename);

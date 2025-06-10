@@ -13,9 +13,7 @@ exports.createBook = async (req, res, next)=>{
 
         const webpImagePath = await convertToWebp(req.file.path); //converti img au format webp
         const webpFilename = path.basename(webpImagePath); //récup le nom du fichier
-        
-        
-        
+    
         const book = new Book({
         ...bookObject,
         userId:req.auth.userId,
@@ -26,7 +24,6 @@ exports.createBook = async (req, res, next)=>{
         await book.save();
             res.status(201).json({message: 'livre enregistré'});
     } catch (error) {
-         console.error('Erreur lors de la création du livre :', error);
         res.status(400).json ({error});
     } 
 };
@@ -76,7 +73,7 @@ exports.ratingBook = (req, res, next) =>{
 exports.getAllBook = (req, res, next)=>{
     Book.find()
         .then(books => res.status(200).json(books))
-        .catch(error => res.status(400).json ({error}));
+        .catch(error => res.status(500).json ({error}));
 };
 
 exports.getOneBook = (req, res, next)=>{
