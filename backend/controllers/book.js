@@ -5,6 +5,7 @@ const convertToWebp = require('../utilities/convertWebp');
 
 
 exports.createBook = async (req, res, next)=>{
+
     try{
         const bookObject = JSON.parse (req.body.book);
         
@@ -22,8 +23,10 @@ exports.createBook = async (req, res, next)=>{
         ratings: [] 
     });
         await book.save();
+        console.log("✅ Livre enregistré, envoi réponse 201");
             res.status(201).json({message: 'livre enregistré'});
     } catch (error) {
+          console.error("❌ Erreur dans createBook :", error);
         res.status(400).json ({error});
     } 
 };

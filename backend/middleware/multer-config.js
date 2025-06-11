@@ -24,5 +24,6 @@ const storage = multer.diskStorage({
     }
 });
 
+
 //export de multer, on indique qu'on gere uniquement les telechargements de fichier image
 module.exports = multer({storage: storage}).single('image');
