@@ -127,7 +127,7 @@ exports.modifyBook = async (req,res,next)=>{
             if (oldImageName){
                 const oldImagePath = path.join("images", oldImageName);
                 try{
-                    await fs.unlink(oldImageName);
+                    await fs.unlink(oldImagePath);
                     console.log("Ancienne image supprimée", oldImageName);
                 }catch (err){
                     console.log("Impossible de supprimer l'ancienne image", err.message)
