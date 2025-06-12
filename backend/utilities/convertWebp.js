@@ -14,15 +14,14 @@ await sharp (inputPath)
     .toFormat ('webp', {quality:95}) //modifie qualité
     .toFile(outputPath);
 
-    /*setTimeout(() => {
-        fs.unlink(inputPath, (error) => {
-            if (error) {
-                console.log("erreur suppression image originale : ", error);
-            } else {
-                console.log("Image originale supprimée après délai");
-            }
-        });
-    }, 5000); // délai de 5000 ms = 5 secondes*/
+    setTimeout(async () => {
+    try {
+        await fs.unlink(inputPath);
+        console.log("Image originale supprimée après délai");
+    } catch (error) {
+        console.log("Erreur suppression image originale :", error);
+    }
+}, 13000);
 
     return outputPath;
 };
