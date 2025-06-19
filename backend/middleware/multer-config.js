@@ -1,13 +1,16 @@
 const multer = require ('multer');
 
+//on crée un objet qui associe les types MIME a leur extensions de fichiers pour donner la bonne au fichier enregistré
 const MIME_TYPES ={
     'image/jpg' : 'jpg',
     'image/jpeg' : 'jpeg',
     'image/png' : 'png'
 };
 
+//on enregistre les fichiers sur le disque localement
 const storage = multer.diskStorage({
 //indique a multer d'enregistrer les fichiers dans le dossier image
+// callback = pas d'erreur, met le fichier ici
     destination: (req, file, callback) =>{
         callback(null, 'images');
     },
