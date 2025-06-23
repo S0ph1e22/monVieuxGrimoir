@@ -1,11 +1,24 @@
-Développer le back-end d’un site de notation de livres
+#📚 Développer le back-end d’un site de notation de livres : mon vieux grimoire 
 
-Comment lancer le projet ? :
 
-Front-end : 
+##🚀 Comment lancer le projet ? :
 
-Depuis le répertoire frontend, faite la commande « npm install » pour installer les dépendances, puis « npm start » pour lancer le projet.
+🖥️ Le front-end (sur windows): 
 
-	Back-end :
+Depuis le répertoire 'frontend', ouvrez un terminal puis exécutez les commandes suivantes :
 
-Depuis le répertoire backend, faite la commande « nodemon server » pour lancer le server.
+npm install
+npm start
+
+
+🖥️ Le back-end (sur Ubuntu) :
+
+Dans un terminal Ubuntu, placez-vous dans le dossier 'backend' et exécutez les commandes suivantes :
+
+npm install
+nodemon server
+
+###🔐 Configuration du fichier .env
+
+Avant de lancer le serveur backend, créez un fichier '.env' dans le dossier 'backend' en vous basant sur le fichier '.env_public' fourni.
+Remplacer les valeurs '<utilisateur>', '<mot_de_passe>' et 'ta_cle_secrete_ici' par vos propres informations sécurisées.
