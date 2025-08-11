@@ -1,4 +1,4 @@
-# Mon Vieux Grimoir
+# Mon Vieux Grimoire
 
 Mon Vieux Grimoir est un backend d’application web permettant la gestion et la notation de livres.  
 Le serveur est développé avec **Express.js** et utilise **MongoDB** via **Mongoose** pour stocker les données.
