@@ -1,24 +1,36 @@
-#📚 Développer le back-end d’un site de notation de livres : mon vieux grimoire 
+# Mon Vieux Grimoir
 
+Mon Vieux Grimoir est un backend d’application web permettant la gestion et la notation de livres.  
+Le serveur est développé avec **Express.js** et utilise **MongoDB** via **Mongoose** pour stocker les données.
 
-##🚀 Comment lancer le projet ? :
+## 🎯 Objectifs du projet
+- Créer un serveur RESTful avec Express.js
+- Implémenter une architecture MVC claire et maintenable
+- Modéliser les données livres et notations avec Mongoose
+- Implémenter les opérations CRUD (Créer, Lire, Mettre à jour, Supprimer)
+- Mettre en place une authentification sécurisée des utilisateurs
+- Gérer le téléchargement et l’optimisation des images de livres
+- Calculer et stocker la note moyenne des livres
+- Respecter les bonnes pratiques du Green Code pour limiter l’empreinte écologique
 
-🖥️ Le front-end (sur windows): 
+## 🛠️ Technologies utilisées
+- Node.js  
+- Express.js  
+- MongoDB Atlas (base de données cloud)  
+- Mongoose (ODM MongoDB)  
+- Middleware pour gestion des images (ex: Multer)  
+- JWT ou autre système d’authentification sécurisée  
+- MVC (Modèle-Vue-Contrôleur) pour structurer le projet
 
-Depuis le répertoire 'frontend', ouvrez un terminal puis exécutez les commandes suivantes :
+## 📂 Fonctionnalités principales
+- CRUD complet sur les livres et leurs notations
+- Système d’authentification et gestion des sessions utilisateurs
+- Upload et optimisation d’images (couvertures de livres)
+- Calcul automatique de la moyenne des notes attribuées
+- Sécurisation des données et validation côté serveur
 
-npm install
-npm start
+## 🚀 Installation et lancement
 
-
-🖥️ Le back-end (sur Ubuntu) :
-
-Dans un terminal Ubuntu, placez-vous dans le dossier 'backend' et exécutez les commandes suivantes :
-
-npm install
-nodemon server
-
-###🔐 Configuration du fichier .env
-
-Avant de lancer le serveur backend, créez un fichier '.env' dans le dossier 'backend' en vous basant sur le fichier '.env_public' fourni.
-Remplacer les valeurs '<utilisateur>', '<mot_de_passe>' et 'ta_cle_secrete_ici' par vos propres informations sécurisées.
+1. **Cloner le projet**  
+   ```bash
+   git clone https://github.com/S0ph1e22/monVieuxGrimoir.git
